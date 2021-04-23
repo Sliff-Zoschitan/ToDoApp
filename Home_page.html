@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+</head>
+<body>
+    <form method="POST">
+        <input name="tsk">
+        <button>Добавить задание</button>
+        <br>
+    {{range .}}
+        {{if ne .Id 0}}
+            <br>
+            <b>{{.Text}}</b>
+            {{if .Status}}
+            <b>{Задача выполнена}</b>
+            {{else}}
+            <b>{Задача не выполнена}</b>
+            {{end}}
+            <button value="{{.Id}}" name="btn1">Изменить статус</button>
+            <button value="{{.Id}}" name="btn2">Удалить задачу</button>
+            <input name="{{.Id}}">
+            <button value="{{.Id}}" name="btn3">Изменить задачу</button>
+            <br>
+        {{end}}
+    {{end}}
+    </form>
+</body>
+    
+</html>
